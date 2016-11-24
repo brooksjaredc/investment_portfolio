@@ -1,0 +1,39 @@
+{% load staticfiles %}
+
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<link rel="stylesheet" type="text/css" href="{% static 'style.css' %}" />
+		<title>Investment Portfolio</title>
+	</head>
+	<body>
+		<nav class="navbar navbar-default navbar-static-top text-center">
+		<a href="/">
+			<img src="{% static 'images/turdferguson.jpg' %}" alt="Investment Portfolio" width = 600>
+		</a>
+		</nav>
+		<main class="container" role="main">
+		<div class="stock panel panel-default">
+		{% for stock in stocks %}
+		<div class="panel-heading">
+			<h2 class="panel-title">{{stock.stock}}</h2>
+		</div>
+		<div class="panel-body">
+			<table class="stock-table">
+				<tr>
+					<th>
+						<img src="{% static 'images/tigersfighting.jpg' %}" width=200>
+					</th>
+					<td>price = ${{stock.price}}, shares = {{stock.shares}}</td>
+				</tr>
+			</table>
+		</div>
+
+		
+<!-- 		<p>price = ${{stock.price}}, shares = {{stock.shares}}</p> -->
+
+		{% endfor %}
+		</div>
+		</main>
+	</body>
+</html>

@@ -11,16 +11,11 @@
 		<a href="/">
 			<img src="{% static 'images/turdferguson.jpg' %}" alt="Investment Portfolio" width = 600>
 		</a>
-		{% if user.is_authenticated %}
-			<a class = "navbar-text navbar-right" href="{% url 'profile' user.username %}">{{ user.username }}</a>
-			<a class = "navbar-text navbar-right" href="{% url 'logout' %}">logout</a>
-		{% else %}
-			<a class = "navbar-text navbar-right" href="{% url 'login' %}">login</a>
-		{% endif %}
 		</nav>
 		<main class="container" role="main">
+			<h1>{{ username }}</h1>
 		<div class="stock panel panel-default">
-		{% for stock in stocks %}
+<!-- 		{% for stock in stocks %}
 		<div class="panel-heading">
 			<h2 class="panel-title">{{stock.stock}}</h2>
 		</div>
@@ -34,11 +29,7 @@
 				</tr>
 			</table>
 		</div>
-
-		
-<!-- 		<p>price = ${{stock.price}}, shares = {{stock.shares}}</p> -->
-
-		{% endfor %}
+		{% endfor %} -->
 		</div>
 		<form action="{% url 'buy_stock' %}" method="post">
 			{% csrf_token %}
